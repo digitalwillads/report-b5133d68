@@ -1,0 +1,166 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>CoAd - Search ads: problems and fixes</title>
+<style>
+@page { size: 1280px 720px; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #e9e9e6; font: 18px/1.45 Inter, "Helvetica Neue", Arial, system-ui, sans-serif; color: #1d1d1b; }
+.deck { width: 1280px; height: 720px; position: relative; transform-origin: top left; }
+.slide { position: absolute; inset: 0; background: #fcfcfb; padding: 46px 80px 58px; display: none; flex-direction: column; }
+.slide.on { display: flex; }
+.slide > * { flex-shrink: 0; }  /* a shrunk SVG rescales and drifts off the text column */
+.kick { font-size: 14px; letter-spacing: .12em; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+h1 { font-size: 34px; line-height: 1.15; margin: 0 0 14px; font-weight: 750; letter-spacing: -.01em; max-width: 1060px; }
+p.lead { font-size: 17.5px; color: #3d3d3a; margin: 0 0 20px; max-width: 1080px; }
+.cap { font-size: 14px; color: #6b6b66; margin-bottom: 8px; }
+.seglabs { position: relative; height: 70px; margin-top: 10px; }
+.seglab { position: absolute; top: 0; font-size: 14px; line-height: 1.3; color: #3d3d3a; padding-right: 8px; }
+.seglab i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; }
+.seglab b { color: #1d1d1b; font-size: 16px; } .seglab span { display: block; color: #6b6b66; padding-left: 16px; }
+.row { display: flex; gap: 48px; margin-top: auto; padding-top: 0; align-items: flex-end; }
+table { border-collapse: collapse; font-size: 15px; } td { padding: 3px 18px 3px 0; border-bottom: 1px solid #ecece8; }
+td b { background: #fbe3e0; border-radius: 3px; padding: 0 3px; }  /* text stays ink; the tint marks the word */
+td.n { text-align: right; font-variant-numeric: tabular-nums; color: #3d3d3a; }
+.note { flex: 1; font-size: 16px; color: #3d3d3a; border-left: 3px solid #9a6a00; padding: 4px 0 4px 16px; }
+.lab { font-size: 14px; fill: #6b6b66; } .in { font-size: 17px; fill: #fff; font-weight: 700; }
+.out { font-size: 16px; fill: #1d1d1b; font-weight: 700; } .ghost { font-size: 16px; fill: #6b6b66; }
+.tiles { display: flex; gap: 20px; margin-top: auto; padding-top: 18px; }
+.tile { flex: 1; background: #f3f3f0; border-radius: 8px; padding: 16px 18px; font-size: 15px; color: #3d3d3a; }
+.tile b { display: block; font-size: 26px; color: #1d1d1b; margin-bottom: 4px; }
+.foot { position: absolute; left: 80px; right: 80px; bottom: 22px; font-size: 13px; color: #8a8a84; display: flex; justify-content: space-between; }
+.dots { position: fixed; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; gap: 10px; }
+.dots button { width: 10px; height: 10px; border-radius: 50%; border: 0; background: #bdbdb7; padding: 0; cursor: pointer; }
+.dots button.on { background: #1d1d1b; }
+@media print { html, body { background: none; } .deck { transform: none !important; height: auto; } .slide { display: flex !important; position: relative; height: 720px; break-after: page; } .dots { display: none; } }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; } .chip { background: #f3f3f0; border-radius: 16px; padding: 5px 12px 5px 10px; font-size: 15px; }
+.chip i { font-style: normal; font-weight: 800; margin-right: 6px; } .cols { display: flex; gap: 40px; } .cols > div { flex: 1; }
+.colhead { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+a.go { display: inline-block; margin-right: 12px; padding: 7px 14px; border-radius: 18px; background: #1d1d1b; color: #fff; text-decoration: none; font-size: 15px; font-weight: 600; }
+.links { margin-top: 14px; } .tile a { color: #1b5fa8; }
+</style></head><body>
+<div class="deck" id="deck">
+<section class="slide on">
+  <div class="kick" style="color:#1d1d1b">Search terms audit, Oct 18 to Nov 16</div>
+  <h1>Three fixes stop about $51,608 a month of search ad waste</h1>
+  <p class="lead">In 30 days CoAd spent $99,670 on the searches Google shows us. Only 20% reached business buyers. Two fixes are live since Nov 17. The third is ready and waits for your OK.</p>
+  <div class="cap">Spend each fix stops, a month</div>
+  <svg viewBox="0 0 1120 120" width="1120" height="120" role="img" aria-label="Employee login searches $32,879; Brand campaign: our name only $2,748; Job seekers, claims, free forms, more $15,981"><text x="0" y="25" class="lab" style="font-size:16px;fill:#1d1d1b">Employee login searches</text><rect x="360" y="6" width="500.0" height="28" rx="4" fill="#1f8a4c"><title>Employee login searches: $32,879</title></rect><text x="870.0" y="25" class="out">$32,879</text><text x="950.0" y="25" class="ghost">Live Nov 17</text><text x="0" y="65" class="lab" style="font-size:16px;fill:#1d1d1b">Brand campaign: our name only</text><rect x="360" y="46" width="41.8" height="28" rx="4" fill="#1f8a4c"><title>Brand campaign: our name only: $2,748</title></rect><text x="411.8" y="65" class="out">$2,748</text><text x="491.8" y="65" class="ghost">Live Nov 17</text><text x="0" y="105" class="lab" style="font-size:16px;fill:#1d1d1b">Job seekers, claims, free forms, more</text><rect x="360" y="86" width="243.0" height="28" rx="4" fill="#9a6a00"><title>Job seekers, claims, free forms, more: $15,981</title></rect><text x="613.0" y="105" class="out">$15,981</text><text x="693.0" y="105" class="ghost">Ready, needs your OK</text></svg>
+  <div class="links"><a class="go" href="https://digitalwillads.github.io/report-b5133d68/audit.html" target="_blank" rel="noopener">The full audit</a><a class="go" href="https://digitalwillads.github.io/report-b5133d68/negatives.html" target="_blank" rel="noopener">The next negative keywords</a></div>
+  <div class="foot"><span>CoAd (CoAdvantage) Google Ads</span><span>1 / 8</span></div>
+</section>
+<section class="slide">
+  <div class="kick" style="color:#b42318">The problem</div>
+  <h1>38% of the search ad money went to employees looking for their login page</h1>
+  <p class="lead">People who work at other companies search for their employer's payroll or benefits website, such as Dayforce, bswift or Employee Navigator. CoAd's ads showed up, they clicked, and CoAd paid for each click. None of these people can become a client.</p>
+  <div class="cap">Where the money went, last 30 days (Oct 18 to Nov 16), $99,670 of search spend</div>
+  <svg class="bar" viewBox="0 0 1120 56" width="1120" height="56" role="img" aria-label="Employees looking for their login $38,162; Other searches that can never buy $22,870; Needs a decision $18,695; Business buyers $19,942"><rect x="0.0" y="0" width="426.8" height="56" fill="#b42318" rx="4"><title>Employees looking for their login: $38,162 (38%)</title></rect><rect x="428.8" y="0" width="255.0" height="56" fill="#ef9a8f" rx="0"><title>Other searches that can never buy: $22,870 (23%)</title></rect><rect x="685.8" y="0" width="208.1" height="56" fill="#9a6a00" rx="0"><title>Needs a decision: $18,695 (19%)</title></rect><rect x="895.9" y="0" width="224.1" height="56" fill="#1f8a4c" rx="4"><title>Business buyers: $19,942 (20%)</title></rect></svg><div class="seglabs"><div class="seglab" style="left:0.0px;width:426.8px"><i style="background:#b42318"></i><b>38%</b> Employees looking for their login<span>$38,162</span></div><div class="seglab" style="left:428.8px;width:255.0px"><i style="background:#ef9a8f"></i><b>23%</b> Other searches that can never buy<span>$22,870</span></div><div class="seglab" style="left:685.8px;width:208.1px"><i style="background:#9a6a00"></i><b>19%</b> Needs a decision<span>$18,695</span></div><div class="seglab" style="left:895.9px;width:224.1px"><i style="background:#1f8a4c"></i><b>20%</b> Business buyers<span>$19,942</span></div></div>
+  <div class="row">
+    <div><div class="cap">Some of what they searched</div><table><tr><td>onpay <b>login</b></td></tr><tr><td>paychex flex <b>login</b> employer</td></tr><tr><td>gusto payroll <b>login</b></td></tr><tr><td>surepayroll <b>login</b></td></tr><tr><td>adp employer <b>login</b></td></tr><tr><td>paycom <b>portal</b></td></tr></table></div>
+    <div class="note">Only $19,942 reached business buyers. The reports did not show the problem, because Google counted many of these login clicks as conversions.</div>
+  </div>
+  <div class="foot"><span>CoAd (CoAdvantage) Google Ads</span><span>2 / 8</span></div>
+</section>
+<section class="slide">
+  <div class="kick" style="color:#1f8a4c">The fix, live since Nov 17</div>
+  <h1>We now block these searches on all 10 non-brand campaigns</h1>
+  <p class="lead">We added a list of 70 blocked words to the 10 non-brand search campaigns. CoAd's ads no longer show when a search has a login or website word, such as login, sign in, portal or .com, or the name of a portal that only employees use, such as Dayforce, bswift, Alight or UltiPro.</p>
+  <div class="cap">Login searches in these 10 campaigns, last 30 days</div>
+  <svg class="bar2" viewBox="0 0 1120 150" width="1120" height="150" role="img" aria-label="Before: $36,550 a month on portal searches. After: $3,671 still gets through, $32,879 blocked.">
+<text x="0" y="16" class="lab">Before the list</text>
+<rect x="0" y="26" width="1120" height="40" rx="4" fill="#b42318"><title>Before: $36,550</title></rect>
+<text x="1106" y="52" text-anchor="end" class="in">$36,550 a month</text>
+<text x="0" y="98" class="lab">With the list</text>
+<rect x="1" y="109" width="1118" height="38" rx="4" fill="none" stroke="#c9c9c4" stroke-width="2" stroke-dasharray="6 5"><title>Blocked: $32,879</title></rect>
+<rect x="0" y="108" width="112.5" height="40" rx="4" fill="#b42318"><title>Still gets through: $3,671</title></rect>
+<text x="124.5" y="134" class="out">$3,671 still gets through</text>
+<text x="1106" y="134" text-anchor="end" class="ghost">$32,879 blocked (90%)</text>
+</svg>
+  <div class="tiles">
+    <div class="tile"><b>$32,879</b>a month that now goes to the searches that are left, instead of to employees.</div>
+    <div class="tile"><b>$211</b>of good searches also blocked, a month. Most are website searches such as "coadvantage com" and "remote com". The brand campaign still shows ads for CoAdvantage's own name.</div>
+    <div class="tile"><b>About 1 in 5</b>reported conversions will go away. In the last 90 days, 131 of the 613 conversions came from these searches, and HubSpot called about 30 of them qualified leads. They were employees, so real leads should not drop.</div>
+  </div>
+  <div class="foot"><span>The brand campaign also bought $1,613 of these searches. Since Nov 17 it uses exact match on CoAd and PrimePay names only.</span><span>3 / 8</span></div>
+</section>
+<section class="slide">
+  <div class="kick" style="color:#b42318">The problem</div>
+  <h1>38% of the brand campaign's money went to searches for other companies</h1>
+  <p class="lead">A brand campaign should show ads only when someone searches for CoAd or PrimePay. But 13 of its 47 keywords were broad or phrase match, and Google used them to show CoAd ads on searches such as "gusto" and "onpay login".</p>
+  <div class="cap">Brand campaign spend, last 90 days (Aug 19 to Nov 16)</div>
+  <svg class="bar2" viewBox="0 0 1120 56" width="1120" height="56" role="img" aria-label="Searches for other companies $8,283; searches for CoAd or PrimePay $13,473"><rect x="0" y="0" width="425.4" height="56" rx="4" fill="#b42318"><title>Searches for other companies: $8,283</title></rect><rect x="427.4" y="0" width="692.6" height="56" rx="4" fill="#1f8a4c"><title>Searches for CoAd or PrimePay: $13,473</title></rect><text x="16" y="35" class="in">38% searches for other companies, $8,283</text><text x="1104" y="35" text-anchor="end" class="in">62% searches for CoAd or PrimePay, $13,473</text></svg>
+  <div class="row">
+    <div><div class="cap">Some of the other companies' searches it paid for</div><table><tr><td><b>gusto</b></td></tr><tr><td><b>patriot</b> payroll</td></tr><tr><td><b>onpay</b> login</td></tr><tr><td><b>square</b> payroll</td></tr><tr><td><b>paychex</b> flex login employer</td></tr></table></div>
+    <div class="note">Almost all of it, $8,243 of $8,283, came from the 13 broad and phrase keywords. The exact keywords stayed on our name.</div>
+  </div>
+  <div class="foot"><span>CoAd (CoAdvantage) Google Ads</span><span>4 / 8</span></div>
+</section>
+<section class="slide">
+  <div class="kick" style="color:#1f8a4c">The fix, live since Nov 17</div>
+  <h1>The brand campaign now shows ads only for searches with our name</h1>
+  <p class="lead">Every keyword in the brand campaign is now exact match, and every one holds the CoAd or PrimePay name. First we added 64 exact keywords from real brand searches of the last 90 days, so nobody who searches for CoAd loses the ad. Then we paused the 13 broad and phrase keywords. Our own clients' login searches keep their ads.</p>
+  <div class="cols">
+    <div><div class="colhead">Still shows a CoAd ad</div><div class="chips"><span class="chip"><i style="color:#1f8a4c">&#10003;</i>coadvantage</span><span class="chip"><i style="color:#1f8a4c">&#10003;</i>primepay</span><span class="chip"><i style="color:#1f8a4c">&#10003;</i>coad</span><span class="chip"><i style="color:#1f8a4c">&#10003;</i>coad pay</span><span class="chip"><i style="color:#1f8a4c">&#10003;</i>coadvantage tampa fl</span><span class="chip"><i style="color:#1f8a4c">&#10003;</i>coadquantum login</span></div></div>
+    <div><div class="colhead">No longer shows a CoAd ad</div><div class="chips"><span class="chip"><i style="color:#b42318">&#10005;</i>gusto</span><span class="chip"><i style="color:#b42318">&#10005;</i>onpay login</span><span class="chip"><i style="color:#b42318">&#10005;</i>patriot payroll</span><span class="chip"><i style="color:#b42318">&#10005;</i>square payroll</span><span class="chip"><i style="color:#b42318">&#10005;</i>zoho payroll</span><span class="chip"><i style="color:#b42318">&#10005;</i>business tools</span></div></div>
+  </div>
+  <div class="tiles">
+    <div class="tile"><b>$2,748</b>a month that no longer goes to searches without our name ($8,243 over 90 days).</div>
+    <div class="tile"><b>98 exact keywords</b>all with the CoAd or PrimePay name, up from 34. The 13 broad and phrase keywords are paused.</div>
+    <div class="tile"><b>43 of 109</b>reported brand conversions in 90 days came from searches without our name, such as "patriot software login". Expect fewer reported brand conversions.</div>
+  </div>
+  <div class="foot"><span>CoAd (CoAdvantage) Google Ads</span><span>5 / 8</span></div>
+</section>
+<section class="slide">
+  <div class="kick" style="color:#b42318">The problem</div>
+  <h1>Another $20,228 a month still goes to people who can never buy</h1>
+  <p class="lead">The login fix and the brand fix do not stop these searches: job seekers, injured workers, and people who want a free form.</p>
+  <div class="cap">Non-brand spend on these searches, last 30 days</div>
+  <div class="cols"><div style="flex:2"><svg viewBox="0 0 760 238" width="760" height="238" role="img" aria-label="Job seekers, background checks $5,335; Unrelated software, banking $4,389; Portals the first list missed $3,671; Free forms, templates, pay stubs $3,060; Workers&#x27; comp claims offices $1,803; Required harassment training $1,306; Self-employed, household $663"><text x="0" y="25" class="lab" style="font-size:16px;fill:#1d1d1b">Job seekers, background checks</text><rect x="290" y="6" width="210.0" height="22" rx="4" fill="#b42318"><title>Job seekers, background checks: $5,335</title></rect><text x="510.0" y="25" class="out">$5,335</text><text x="0" y="59" class="lab" style="font-size:16px;fill:#1d1d1b">Unrelated software, banking</text><rect x="290" y="40" width="172.8" height="22" rx="4" fill="#b42318"><title>Unrelated software, banking: $4,389</title></rect><text x="472.8" y="59" class="out">$4,389</text><text x="0" y="93" class="lab" style="font-size:16px;fill:#1d1d1b">Portals the first list missed</text><rect x="290" y="74" width="144.5" height="22" rx="4" fill="#b42318"><title>Portals the first list missed: $3,671</title></rect><text x="444.5" y="93" class="out">$3,671</text><text x="0" y="127" class="lab" style="font-size:16px;fill:#1d1d1b">Free forms, templates, pay stubs</text><rect x="290" y="108" width="120.4" height="22" rx="4" fill="#b42318"><title>Free forms, templates, pay stubs: $3,060</title></rect><text x="420.4" y="127" class="out">$3,060</text><text x="0" y="161" class="lab" style="font-size:16px;fill:#1d1d1b">Workers&#x27; comp claims offices</text><rect x="290" y="142" width="71.0" height="22" rx="4" fill="#b42318"><title>Workers&#x27; comp claims offices: $1,803</title></rect><text x="371.0" y="161" class="out">$1,803</text><text x="0" y="195" class="lab" style="font-size:16px;fill:#1d1d1b">Required harassment training</text><rect x="290" y="176" width="51.4" height="22" rx="4" fill="#b42318"><title>Required harassment training: $1,306</title></rect><text x="351.4" y="195" class="out">$1,306</text><text x="0" y="229" class="lab" style="font-size:16px;fill:#1d1d1b">Self-employed, household</text><rect x="290" y="210" width="26.1" height="22" rx="4" fill="#b42318"><title>Self-employed, household: $663</title></rect><text x="326.1" y="229" class="out">$663</text></svg></div>
+  <div><div class="cap">Some of what they searched</div><table><tr><td><b>first advantage</b></td></tr><tr><td><b>mysedgwick</b></td></tr><tr><td><b>i9 form</b></td></tr><tr><td>sexual harassment training <b>certificate</b></td></tr><tr><td><b>123 paystub</b></td></tr><tr><td><b>invoice2go</b></td></tr></table></div></div>
+  <div class="foot"><span>CoAd (CoAdvantage) Google Ads</span><span>6 / 8</span></div>
+</section>
+<section class="slide">
+  <div class="kick" style="color:#9a6a00">The fix, ready for your OK</div>
+  <h1>225 more negative keywords stop $15,981 of it</h1>
+  <p class="lead">One more shared list on the 10 non-brand campaigns. It blocks names only these people search, such as Sedgwick, First Advantage or paystub.</p>
+  <svg viewBox="0 0 1120 150" width="1120" height="150" role="img" aria-label="Before: $20,228 a month. With the list: $4,247 still gets through, $15,981 blocked.">
+<text x="0" y="16" class="lab">Today</text>
+<rect x="0" y="26" width="1120" height="40" rx="4" fill="#b42318"><title>Today: $20,228</title></rect>
+<text x="1106" y="52" text-anchor="end" class="in">$20,228 a month</text>
+<text x="0" y="98" class="lab">With the list</text>
+<rect x="1" y="109" width="1118" height="38" rx="4" fill="none" stroke="#c9c9c4" stroke-width="2" stroke-dasharray="6 5"><title>Blocked: $15,981</title></rect>
+<rect x="0" y="108" width="235.1" height="40" rx="4" fill="#b42318"><title>Still gets through: $4,247</title></rect>
+<text x="247.1" y="134" class="out">$4,247 still gets through</text>
+<text x="1106" y="134" text-anchor="end" class="ghost">$15,981 blocked (79%)</text>
+</svg>
+  <div class="tiles">
+    <div class="tile"><b>0 of 206</b>live keywords blocked. CoAd keeps "I-9 compliance support" and "harassment training for employees".</div>
+    <div class="tile"><b>134.5 conversions</b>in 90 days came from these searches (68 calls, 43 form fills, 23.5 MQLs). They look like job seekers and workers, not leads.</div>
+    <div class="tile"><b>The full list</b>Each keyword, its match type and the searches it stops: <a href="https://digitalwillads.github.io/report-b5133d68/negatives.html" target="_blank" rel="noopener">open the list</a>.</div>
+  </div>
+  <div class="foot"><span>CoAd (CoAdvantage) Google Ads</span><span>7 / 8</span></div>
+</section>
+<section class="slide">
+  <div class="kick" style="color:#1d1d1b">Next</div>
+  <h1>42% of the conversions Google reported came from people who can never buy</h1>
+  <p class="lead">Google bids for more of what it counts as a conversion. Today it counts job seekers' calls and employees' form fills, so it looks for more of them. Next we count only real leads, and then move money to the searches that make them.</p>
+  <div class="cap">Conversions in the 10 non-brand campaigns, last 90 days (613)</div>
+  <svg class="bar" viewBox="0 0 1120 56" width="1120" height="56" role="img" aria-label="From login searches, now blocked 131 conversions; From the next list's searches 128 conversions; From all other searches 353 conversions"><rect x="0.0" y="0" width="238.3" height="56" fill="#b42318" rx="4"><title>From login searches, now blocked: 131 conversions (21%)</title></rect><rect x="240.3" y="0" width="232.8" height="56" fill="#ef9a8f" rx="0"><title>From the next list&#x27;s searches: 128 conversions (21%)</title></rect><rect x="475.1" y="0" width="644.9" height="56" fill="#8a8a84" rx="4"><title>From all other searches: 353 conversions (58%)</title></rect></svg><div class="seglabs"><div class="seglab" style="left:0.0px;width:238.3px"><i style="background:#b42318"></i><b>21%</b> From login searches, now blocked<span>131 conversions</span></div><div class="seglab" style="left:240.3px;width:232.8px"><i style="background:#ef9a8f"></i><b>21%</b> From the next list&#x27;s searches<span>128 conversions</span></div><div class="seglab" style="left:475.1px;width:644.9px"><i style="background:#8a8a84"></i><b>58%</b> From all other searches<span>353 conversions</span></div></div>
+  <div class="tiles">
+    <div class="tile"><b>Conversion tracking</b>Count only sales-qualified leads, so Google bids for buyers. This is the plan for Friday's call.</div>
+    <div class="tile"><b>$11,206 a month</b>on competitor names. Comparison searches can get their own campaign. Bare names mostly come from those vendors' own customers.</div>
+    <div class="tile"><b>$144 on PEO</b>searches in 30 days, of $99,670. A PEO client is worth about 12 times a payroll client, so this is the biggest room to grow.</div>
+  </div>
+  <div class="foot"><span>CoAd (CoAdvantage) Google Ads</span><span>8 / 8</span></div>
+</section>
+</div>
+<div class="dots" id="dots"></div>
+<script>
+const slides = [...document.querySelectorAll('.slide')], dots = document.getElementById('dots'), deck = document.getElementById('deck');
+let cur = 0;
+slides.forEach((_, i) => { const b = document.createElement('button'); b.ariaLabel = 'Slide ' + (i + 1);
+  b.onclick = e => { e.stopPropagation(); show(i); }; dots.appendChild(b); });
+function show(i) { cur = (i + slides.length) % slides.length; slides.forEach((s, j) => s.classList.toggle('on', j === cur));
+  [...dots.children].forEach((d, j) => d.classList.toggle('on', j === cur)); console.log('slides: show', cur + 1); }
+function fit() { const s = Math.min(innerWidth / 1280, innerHeight / 720); deck.style.transform = `scale(${s})`; }
+document.addEventListener('click', e => { if (e.target.closest('a')) return; show(cur + 1); });  // a link opens, the slide stays
+addEventListener('keydown', e => { if (e.key === 'ArrowRight') show(cur + 1); if (e.key === 'ArrowLeft') show(cur - 1); });
+addEventListener('resize', fit); fit(); show(0);
+</script></body></html>

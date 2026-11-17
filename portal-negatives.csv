@@ -1,0 +1,71 @@
+Keyword,Match type,Group
+com,Phrase,Login and website words
+www,Phrase,Login and website words
+https,Phrase,Login and website words
+http,Phrase,Login and website words
+org,Phrase,Login and website words
+login,Phrase,Login and website words
+log in,Phrase,Login and website words
+sign in,Phrase,Login and website words
+signin,Phrase,Login and website words
+sign up,Phrase,Login and website words
+portal,Phrase,Login and website words
+download,Phrase,Login and website words
+descargar,Phrase,Login and website words
+register,Phrase,Login and website words
+enroll,Phrase,Login and website words
+create account,Phrase,Login and website words
+self service,Phrase,Login and website words
+wizard,Phrase,Login and website words
+dayforce,Phrase,Portal names (employees only)
+ultipro,Phrase,Portal names (employees only)
+ukg,Phrase,Portal names (employees only)
+kronos,Phrase,Portal names (employees only)
+bswift,Phrase,Portal names (employees only)
+alight,Phrase,Portal names (employees only)
+benefitsolver,Phrase,Portal names (employees only)
+benefit solver,Phrase,Portal names (employees only)
+navigator,Phrase,Portal names (employees only)
+employeenavigator,Phrase,Portal names (employees only)
+hiretech,Phrase,Portal names (employees only)
+newhire,Phrase,Portal names (employees only)
+paychexflex,Phrase,Portal names (employees only)
+paychex flex,Phrase,Portal names (employees only)
+plansource,Phrase,Portal names (employees only)
+fidelity,Phrase,Portal names (employees only)
+netbenefits,Phrase,Portal names (employees only)
+net benefits,Phrase,Portal names (employees only)
+compass,Phrase,Portal names (employees only)
+compassgroup,Phrase,Portal names (employees only)
+ehr,Phrase,Portal names (employees only)
+worklife,Phrase,Portal names (employees only)
+talx,Phrase,Portal names (employees only)
+hrintouch,Phrase,Portal names (employees only)
+paperlesspay,Phrase,Portal names (employees only)
+paychekplus,Phrase,Portal names (employees only)
+connectpay,Phrase,Portal names (employees only)
+mize,Phrase,Portal names (employees only)
+surency,Phrase,Portal names (employees only)
+empeon,Phrase,Portal names (employees only)
+equateplus,Phrase,Portal names (employees only)
+successfactors,Phrase,Portal names (employees only)
+savant,Phrase,Portal names (employees only)
+sodexo,Phrase,Portal names (employees only)
+walmart,Phrase,Portal names (employees only)
+benefitplace,Phrase,Portal names (employees only)
+aptia365,Phrase,Portal names (employees only)
+runpayroll,Phrase,Portal names (employees only)
+targetpayandbenefits,Phrase,Portal names (employees only)
+i 9 hq,Phrase,Portal names (employees only)
+paycom app,Phrase,Competitor + employee words
+paycom employee,Phrase,Competitor + employee words
+paycom account,Phrase,Competitor + employee words
+paylocity app,Phrase,Competitor + employee words
+paylocity website,Phrase,Competitor + employee words
+workday app,Phrase,Competitor + employee words
+isolved app,Phrase,Competitor + employee words
+adp app,Phrase,Competitor + employee words
+adp onboarding,Phrase,Competitor + employee words
+adp termination,Phrase,Competitor + employee words
+paycor app,Phrase,Competitor + employee words
+viventium app,Phrase,Competitor + employee words
